@@ -1,78 +1,85 @@
-# Concurrent Hash Table (COP 4600 PA2)
+# Concurrent Hash Table
 
-Course project: a **concurrent hash table** backed by a sorted linked list, with thread-safe access (reader–writer style locking) and ordered thread startup. This repository targets the **Rust extra-credit** implementation described in course materials; assignment specs and reference files live under **`PA2 Des/`**.
+Multi-threaded in-memory table: sorted singly linked list keyed by Jenkins hashes, protected with a reader–writer lock; thread start order enforced with a mutex and condition variable. Command files drive insert / delete / update / search / print; output goes to **stdout** and **`hash.log`**.
 
-**GitHub:** [https://github.com/DucNguyen0159/Concurrent-Hash-Table](https://github.com/DucNguyen0159/Concurrent-Hash-Table)
+**Repository:** [https://github.com/DucNguyen0159/Concurrent-Hash-Table](https://github.com/DucNguyen0159/Concurrent-Hash-Table)
+
+## Authors
+
+| Contributor | GitHub |
+|:-------------|:-------|
+| **Henry Nguyen** | [@DucNguyen0159](https://github.com/DucNguyen0159) |
+| **Minh Thien Pham** | — |
 
 ## Prerequisites
 
-- [Rust](https://rustup.rs/) (stable toolchain) and **Cargo** (required)
-- **GNU Make** (optional): only needed if you want the course-style `make` step that copies the binary to the repo root as `chash` / `chash.exe`. Many Windows setups do not have `make`; that is fine.
+- [Rust](https://rustup.rs/) stable toolchain and **Cargo** (required)
+- **GNU Make** (optional): copies the release binary into the repository root as `chash` or `chash.exe` to match Makefile-based submission checks. Windows environments often omit Make; the Cargo-only path below is sufficient to build and run.
 
 ## Build
 
-**Option A — always works (recommended on Windows)**
+**Option A — portable (recommended on Windows)**
 
 ```bash
 cargo build --release
 ```
 
-The executable is **`target/release/chash`** (macOS/Linux) or **`target\release\chash.exe`** (Windows). Nothing is copied to the project root unless you do that yourself or use Option B.
+Artifact locations:
 
-**Option B — matches “run `make` to get `chash`” hand-in instructions**
+- Windows: `target\release\chash.exe`
+- macOS / Linux: `target/release/chash`
+
+No file is placed in the repository root unless copied manually or Option B is used.
+
+**Option B — Makefile copy step**
 
 ```bash
 make
 ```
 
-Requires `make` on your `PATH`. On Windows the `Makefile` copies `target\release\chash.exe` → **`chash.exe`** in the repo root; on Unix it copies → **`./chash`**.
+Requires `make` on `PATH`. Invokes `cargo build --release`, then copies the binary to the project root (`chash.exe` on Windows, `chash` on Unix).
 
 ## Run
 
-From the project root (where **`commands.txt`** lives — a sample is already committed):
+Execute from the repository root so the hard-coded path **`commands.txt`** resolves. A sample `commands.txt` is committed.
 
-- **After `cargo build --release`:**  
-  - Windows PowerShell: **`.\target\release\chash.exe`**  
-  - Unix: **`./target/release/chash`**
-- **After `make`:**  
-  - Windows: **`.\chash.exe`**  
-  - Unix: **`./chash`**
+| Build method | Windows (PowerShell) | Unix shell |
+|--------------|----------------------|------------|
+| After `cargo build --release` | `.\target\release\chash.exe` | `./target/release/chash` |
+| After `make` | `.\chash.exe` | `./chash` |
 
-The program reads `commands.txt`, writes **`hash.log`** (timestamps, turn + lock events, footer with lock counts and final table), and prints command results to **stdout**. Stdout for the bundled workload matches **`PA2 Des/PA#2 Expected Output.md`** (lines 6–160).
+**Outputs**
+
+- **stdout:** per-command messages (insert, update, delete, search, print blocks).
+- **`hash.log`:** timestamped thread / lock events, then lock totals and a `Final Table:` snapshot.
+
+For the committed sample `commands.txt`, stdout was checked against a frozen golden capture of the same workload (lines 6–160 of that reference).
 
 ## Source layout
 
-| Path | Purpose |
-|------|--------|
-| `src/main.rs` | Threads, `RwLock` table, turn gate, stdout ordering, final `hash.log` footer |
-| `src/command.rs` | Parse `threads,...` header and command lines |
+| Path | Role |
+|------|------|
+| `src/main.rs` | Thread pool, `RwLock` table, turn gate, ordered stdout aggregation, `hash.log` footer |
+| `src/command.rs` | `commands.txt` parsing (`threads` header, command lines) |
 | `src/hash.rs` | Jenkins one-at-a-time hash |
-| `src/table.rs` | Sorted linked list + operations |
+| `src/table.rs` | Sorted list, CRUD + database string formatting |
 | `src/sync.rs` | `Mutex` + `Condvar` turn manager |
-| `src/logger.rs` | Serialized `hash.log` lines + lock counters |
+| `src/logger.rs` | Mutex-backed `hash.log` writer and lock counters |
 
-## Repository layout
+## Other paths
 
-| Path | Purpose |
-|------|--------|
-| `PA2 Des/` | Assignment description, expected output, sample logs, `implement_plan.md` |
-| `README.txt` | Plain-text README for course submission (build/run + AI citation) |
-| `README.md` | This file — for GitHub |
-| `RUST_EXPLANATION.md` | Extra-credit Rust / thread-safety write-up |
+| Path | Role |
+|------|------|
+| `README.txt` | Plain-text hand-in copy (build / run / AI attribution) |
+| `RUST_EXPLANATION.md` | Rust concurrency and memory-safety notes (extra-credit documentation) |
 
-## Course submission
+## Git
 
-Use **`README.txt`** in the zip you upload, per instructor instructions. Keep **`README.md`** in sync for GitHub when you change build steps or run instructions.
-
-## Git remotes
-
-This clone is configured with:
+Example remote:
 
 ```text
-origin → https://github.com/DucNguyen0159/Concurrent-Hash-Table.git
+https://github.com/DucNguyen0159/Concurrent-Hash-Table.git
 ```
-
-Typical workflow:
 
 ```bash
 git fetch origin
@@ -80,8 +87,8 @@ git pull origin main
 git push origin main
 ```
 
-Use **HTTPS** with a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) or switch the remote to **SSH** if you prefer (`git@github.com:DucNguyen0159/Concurrent-Hash-Table.git`).
+HTTPS pushes require a [GitHub personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) or SSH credentials configured for the host.
 
-## AI use (course policy)
+## Generative-AI disclosure
 
-Summarize tools, prompts, and how you validated outputs in **`README.txt`** before submission. A short pointer here is not a substitute for the full citation in `README.txt`.
+High-level attribution appears here; the plain-text **`README.txt`** contains the full citation required for academic submission. Tools: **ChatGPT (GPT)** and **Cursor** — see `README.txt` for scope, prompts, and verification steps.
