@@ -1,0 +1,19 @@
+# Rust / Cargo
+/target/
+**/*.rs.bk
+
+# Commit Cargo.lock once the Rust crate exists (reproducible builds).
+
+# PA2 runtime outputs
+hash.log
+chash
+chash.exe
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
