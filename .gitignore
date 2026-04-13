@@ -4,10 +4,10 @@
 
 # Commit Cargo.lock once the Rust crate exists (reproducible builds).
 
-# PA2 runtime outputs
-hash.log
-chash
-chash.exe
+# PA2 runtime outputs (root only; keep sample under PA2 Des/)
+/hash.log
+/chash
+/chash.exe
 
 # OS / editor
 .DS_Store
