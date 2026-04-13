@@ -3,32 +3,61 @@
   Repository: https://github.com/DucNguyen0159/Concurrent-Hash-Table
 ================================================================================
 
+PREREQUISITES
+-------------
+  - Rust (stable) and Cargo — required.
+  - GNU Make — optional. Only needed for the course-style "make" step that
+    copies the built binary to the project root as chash or chash.exe.
+    Many Windows machines do not have make; use Cargo only (below).
+
+
 BUILD
 -----
-  Prerequisites: Rust (Cargo) and Make.
+  Option A — recommended on Windows (always works):
 
-  From the project root:
+    cargo build --release
+
+  The executable is:
+    - Windows:  target\release\chash.exe
+    - Unix:     target/release/chash
+
+  Nothing is copied to the repo root unless you copy it yourself or use
+  Option B.
+
+  Option B — matches hand-in instructions ("make" then run chash in root):
 
     make
 
-  This builds the course executable "chash" (see Makefile in repo).
+  Requires "make" on your PATH. The Makefile runs cargo build --release,
+  then copies the binary to the project root:
+    - Windows:  chash.exe
+    - Unix:     ./chash
 
 
 RUN
 ---
-  1. Put commands.txt in the working directory (project root unless you
-     document otherwise).
-  2. Run:
+  1. Run from the project root (where commands.txt is). A sample
+     commands.txt is included.
 
-       ./chash
+  2. After "cargo build --release":
+       Windows (PowerShell):  .\target\release\chash.exe
+       Unix:                  ./target/release/chash
 
-     On Windows PowerShell/CMD you may use: .\chash.exe
+     After "make" (only if that succeeded):
+       Windows:  .\chash.exe
+       Unix:     ./chash
+
+  Stdout for the bundled workload matches PA2 Des/PA#2 Expected Output.md
+  (lines 6-160).
 
 
 OUTPUT
 ------
   - stdout: command results (insert/update/delete/search/print messages).
-  - hash.log: synchronization diagnostics (timestamps, thread turns, locks).
+  - hash.log: synchronization diagnostics (timestamps, thread turns, locks,
+    then lock counts and "Final Table:" snapshot at end of run).
+
+  See RUST_EXPLANATION.md for the Rust extra-credit design summary.
 
 
 PROJECT FILES

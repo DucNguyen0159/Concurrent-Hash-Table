@@ -6,31 +6,59 @@ Course project: a **concurrent hash table** backed by a sorted linked list, with
 
 ## Prerequisites
 
-- [Rust](https://rustup.rs/) (stable toolchain) and **Cargo**
-- **GNU Make** (or compatible `make`) for the course-required `make` → `chash` build
+- [Rust](https://rustup.rs/) (stable toolchain) and **Cargo** (required)
+- **GNU Make** (optional): only needed if you want the course-style `make` step that copies the binary to the repo root as `chash` / `chash.exe`. Many Windows setups do not have `make`; that is fine.
 
 ## Build
+
+**Option A — always works (recommended on Windows)**
+
+```bash
+cargo build --release
+```
+
+The executable is **`target/release/chash`** (macOS/Linux) or **`target\release\chash.exe`** (Windows). Nothing is copied to the project root unless you do that yourself or use Option B.
+
+**Option B — matches “run `make` to get `chash`” hand-in instructions**
 
 ```bash
 make
 ```
 
-This should produce the `chash` executable (release build; see `Makefile` once added).
+Requires `make` on your `PATH`. On Windows the `Makefile` copies `target\release\chash.exe` → **`chash.exe`** in the repo root; on Unix it copies → **`./chash`**.
 
 ## Run
 
-1. Place **`commands.txt`** in the project root (or run from the directory that contains it).
-2. Execute **`./chash`** (on Windows, `.\chash.exe` if applicable).
+From the project root (where **`commands.txt`** lives — a sample is already committed):
 
-The program reads `commands.txt`, writes diagnostic output to **`hash.log`**, and prints command results to **stdout**.
+- **After `cargo build --release`:**  
+  - Windows PowerShell: **`.\target\release\chash.exe`**  
+  - Unix: **`./target/release/chash`**
+- **After `make`:**  
+  - Windows: **`.\chash.exe`**  
+  - Unix: **`./chash`**
+
+The program reads `commands.txt`, writes **`hash.log`** (timestamps, turn + lock events, footer with lock counts and final table), and prints command results to **stdout**. Stdout for the bundled workload matches **`PA2 Des/PA#2 Expected Output.md`** (lines 6–160).
+
+## Source layout
+
+| Path | Purpose |
+|------|--------|
+| `src/main.rs` | Threads, `RwLock` table, turn gate, stdout ordering, final `hash.log` footer |
+| `src/command.rs` | Parse `threads,...` header and command lines |
+| `src/hash.rs` | Jenkins one-at-a-time hash |
+| `src/table.rs` | Sorted linked list + operations |
+| `src/sync.rs` | `Mutex` + `Condvar` turn manager |
+| `src/logger.rs` | Serialized `hash.log` lines + lock counters |
 
 ## Repository layout
 
 | Path | Purpose |
 |------|--------|
-| `PA2 Des/` | Assignment description, expected output, sample `commands_comprehensive_test.txt`, `hash.log`, Jenkins reference, `implement_plan.md` |
+| `PA2 Des/` | Assignment description, expected output, sample logs, `implement_plan.md` |
 | `README.txt` | Plain-text README for course submission (build/run + AI citation) |
 | `README.md` | This file — for GitHub |
+| `RUST_EXPLANATION.md` | Extra-credit Rust / thread-safety write-up |
 
 ## Course submission
 

@@ -1,0 +1,7 @@
+[package]
+name = "chash"
+version = "0.1.0"
+edition = "2021"
+description = "COP4600 PA2 concurrent hash table (Rust)"
+
+[dependencies]
