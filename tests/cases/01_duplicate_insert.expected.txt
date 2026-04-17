@@ -1,0 +1,6 @@
+Inserted 1874280167,Shigeru Miyamoto,85000
+Inserted 2569965317,Hideo Kojima,92000
+Insert failed. Entry 1874280167 is a duplicate.
+Current Database:
+1874280167,Shigeru Miyamoto,85000
+2569965317,Hideo Kojima,92000

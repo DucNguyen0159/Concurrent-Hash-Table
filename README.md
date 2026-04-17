@@ -9,7 +9,7 @@ Multi-threaded in-memory table: sorted singly linked list keyed by Jenkins hashe
 | Contributor | GitHub |
 |:-------------|:-------|
 | **Henry Nguyen** | [@DucNguyen0159](https://github.com/DucNguyen0159) |
-| **Minh Thien Pham** | — |
+| **Minh Thien Pham** | [@MinhThien-Pham](https://github.com/MinhThien-Pham) |
 
 ## Prerequisites
 

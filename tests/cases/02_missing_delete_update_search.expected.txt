@@ -1,0 +1,4 @@
+Entry 3885792650 not deleted. Not in database.
+Update failed. Entry 1513496221 not found.
+Nonexistent Character not found.
+Current Database:

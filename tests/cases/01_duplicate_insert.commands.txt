@@ -1,0 +1,5 @@
+threads,4
+insert,Shigeru Miyamoto,85000,0
+insert,Hideo Kojima,92000,1
+insert,Shigeru Miyamoto,91000,2
+print,3

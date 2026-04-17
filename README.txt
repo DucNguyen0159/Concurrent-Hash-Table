@@ -10,8 +10,8 @@ AUTHORS
   Henry Nguyen         https://github.com/DucNguyen0159
                        @DucNguyen0159
 
-  Minh Thien Pham      —
-
+  Minh Thien Pham      https://github.com/MinhThien-Pham
+                       @MinhThien-Pham
 
 OVERVIEW
 --------

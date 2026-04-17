@@ -1,0 +1,13 @@
+threads,12
+insert,Shigeru Miyamoto,85000,0
+insert,Hideo Kojima,92000,1
+insert,Gabe Newell,88000,2
+insert,Todd Howard,79000,3
+insert,Hidetaka Miyazaki,95000,4
+insert,Hideki Kamiya,86000,5
+insert,Hironobu Sakaguchi,87000,6
+insert,Sid Meier,84000,7
+insert,Satoru Iwata,93000,8
+insert,Koji Igarashi,91000,9
+print,10
+print,11

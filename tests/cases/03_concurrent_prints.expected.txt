@@ -1,0 +1,32 @@
+Inserted 1874280167,Shigeru Miyamoto,85000
+Inserted 2569965317,Hideo Kojima,92000
+Inserted 448054155,Gabe Newell,88000
+Inserted 3885792650,Todd Howard,79000
+Inserted 1088855094,Hidetaka Miyazaki,95000
+Inserted 1027052763,Hideki Kamiya,86000
+Inserted 2738113066,Hironobu Sakaguchi,87000
+Inserted 3449751099,Sid Meier,84000
+Inserted 4006838355,Satoru Iwata,93000
+Inserted 2474155118,Koji Igarashi,91000
+Current Database:
+448054155,Gabe Newell,88000
+1027052763,Hideki Kamiya,86000
+1088855094,Hidetaka Miyazaki,95000
+1874280167,Shigeru Miyamoto,85000
+2474155118,Koji Igarashi,91000
+2569965317,Hideo Kojima,92000
+2738113066,Hironobu Sakaguchi,87000
+3449751099,Sid Meier,84000
+3885792650,Todd Howard,79000
+4006838355,Satoru Iwata,93000
+Current Database:
+448054155,Gabe Newell,88000
+1027052763,Hideki Kamiya,86000
+1088855094,Hidetaka Miyazaki,95000
+1874280167,Shigeru Miyamoto,85000
+2474155118,Koji Igarashi,91000
+2569965317,Hideo Kojima,92000
+2738113066,Hironobu Sakaguchi,87000
+3449751099,Sid Meier,84000
+3885792650,Todd Howard,79000
+4006838355,Satoru Iwata,93000
