@@ -21,6 +21,10 @@ OVERVIEW
   for strict command-index turn order. Writes hash.log; prints results to
   stdout.
 
+  A case-driven checker (check_pa2.py) reads
+  test inputs/expected outputs from tests/cases/ and validates both stdout
+  and lightweight hash.log invariants.
+
 
 PREREQUISITES
 -------------
@@ -72,8 +76,34 @@ OUTPUT
   hash.log — timestamped WAITING / AWAKENED / lock lines, then lock counts
              and a Final Table: section.
 
-  For the bundled commands.txt, stdout was validated against a frozen
-  golden capture of the same workload (lines 6 through 160 of that file).
+VALIDATION
+----------
+  Run from repository root:
+
+    python check_pa2.py
+
+  Checker workflow per case:
+    - Loads *.commands.txt and matching *.expected.txt from tests/cases/
+    - Overwrites root commands.txt with case input
+    - Runs chash binary and captures stdout exactly
+    - Normalizes CRLF/LF and trims trailing spaces/tabs at line ends
+    - Compares stdout to expected and prints PASS/FAIL (+ unified diff)
+    - Runs configured hash.log checks:
+        * BASIC HASH.LOG CHECK for case invariants
+        * LOG CONCURRENCY CHECK for repeated overlap case
+        * HASH.LOG STRUCTURE CHECK for teacher comprehensive sample log
+    - Returns nonzero exit code if any stdout test fails
+
+  Case files:
+    tests/cases/01_duplicate_insert.commands.txt
+    tests/cases/01_duplicate_insert.expected.txt
+    tests/cases/02_missing_delete_update_search.commands.txt
+    tests/cases/02_missing_delete_update_search.expected.txt
+    tests/cases/03_concurrent_prints.commands.txt
+    tests/cases/03_concurrent_prints.expected.txt
+    tests/cases/04_teacher_comprehensive.commands.txt
+    tests/cases/04_teacher_comprehensive.expected.txt
+    tests/cases/04_teacher_comprehensive.sample_hashlog.txt
 
   RUST_EXPLANATION.md — design notes for Rust concurrency / safety.
 

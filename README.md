@@ -1,6 +1,6 @@
 # Concurrent Hash Table
 
-Multi-threaded in-memory table: sorted singly linked list keyed by Jenkins hashes, protected with a reader–writer lock; thread start order enforced with a mutex and condition variable. Command files drive insert / delete / update / search / print; output goes to **stdout** and **`hash.log`**.
+Multi-threaded in-memory table: sorted singly linked list keyed by Jenkins hashes, protected with a reader-writer lock; thread start order enforced with a mutex and condition variable. Command files drive insert / delete / update / search / print; output goes to **stdout** and **hash.log**.
 
 **Repository:** [https://github.com/DucNguyen0159/Concurrent-Hash-Table](https://github.com/DucNguyen0159/Concurrent-Hash-Table)
 
@@ -41,7 +41,7 @@ Requires `make` on `PATH`. Invokes `cargo build --release`, then copies the bina
 
 ## Run
 
-Execute from the repository root so the hard-coded path **`commands.txt`** resolves. A sample `commands.txt` is committed.
+Execute from the repository root so the hard-coded path **commands.txt** resolves.
 
 | Build method | Windows (PowerShell) | Unix shell |
 |--------------|----------------------|------------|
@@ -53,18 +53,51 @@ Execute from the repository root so the hard-coded path **`commands.txt`** resol
 - **stdout:** per-command messages (insert, update, delete, search, print blocks).
 - **`hash.log`:** timestamped thread / lock events, then lock totals and a `Final Table:` snapshot.
 
-For the committed sample `commands.txt`, stdout was checked against a frozen golden capture of the same workload (lines 6–160 of that reference).
+## Validation
+
+This repository includes a Python checker that loads test cases from files in **tests/cases** and runs them automatically.
+
+Run:
+
+```bash
+python check_pa2.py
+```
+
+Current test-case files:
+
+- `tests/cases/01_duplicate_insert.commands.txt`
+- `tests/cases/01_duplicate_insert.expected.txt`
+- `tests/cases/02_missing_delete_update_search.commands.txt`
+- `tests/cases/02_missing_delete_update_search.expected.txt`
+- `tests/cases/03_concurrent_prints.commands.txt`
+- `tests/cases/03_concurrent_prints.expected.txt`
+- `tests/cases/04_teacher_comprehensive.commands.txt`
+- `tests/cases/04_teacher_comprehensive.expected.txt`
+- `tests/cases/04_teacher_comprehensive.sample_hashlog.txt`
+
+Checker behavior:
+
+- Overwrites root `commands.txt` per test case.
+- Runs the program binary and captures stdout.
+- Normalizes only line endings and trailing spaces/tabs at line ends.
+- Compares stdout to expected output and prints PASS/FAIL with unified diff on mismatch.
+- Runs basic hash.log checks for configured cases.
+- Runs repeated reader-overlap check for `03_concurrent_prints`.
+- Runs structure-only sample-hashlog check for `04_teacher_comprehensive`.
+- Exits nonzero if any stdout check fails.
 
 ## Source layout
 
 | Path | Role |
 |------|------|
+| `check_pa2.py` | Case-driven validator (stdout + hash.log checks) |
 | `src/main.rs` | Thread pool, `RwLock` table, turn gate, ordered stdout aggregation, `hash.log` footer |
 | `src/command.rs` | `commands.txt` parsing (`threads` header, command lines) |
 | `src/hash.rs` | Jenkins one-at-a-time hash |
 | `src/table.rs` | Sorted list, CRUD + database string formatting |
 | `src/sync.rs` | `Mutex` + `Condvar` turn manager |
 | `src/logger.rs` | Mutex-backed `hash.log` writer and lock counters |
+| `tests/cases/` | External command/expected/sample-hashlog case files |
 
 ## Other paths
 
