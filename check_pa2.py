@@ -17,9 +17,11 @@ from __future__ import annotations
 
 import difflib
 import os
+import re
 import subprocess
 import sys
-from dataclasses import dataclass
+from collections import Counter
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
@@ -32,6 +34,22 @@ OVERLAP_CASES = {
     }
 }
 
+BASIC_HASHLOG_CASES = {
+    "01_duplicate_insert": True,
+    "02_missing_delete_update_search": True,
+    "03_concurrent_prints": True,
+    "04_teacher_comprehensive": True,
+}
+
+SAMPLE_HASHLOG_CASES = {
+    "04_teacher_comprehensive": {
+        "mode": "structure_only"
+    }
+}
+
+COMMAND_TYPES = {"INSERT", "DELETE", "UPDATE", "SEARCH", "PRINT"}
+COMMAND_LINE_RE = re.compile(r"^THREAD\s+\d+\s+([A-Z]+)")
+
 
 @dataclass
 class TestCase:
@@ -39,6 +57,21 @@ class TestCase:
     basename: str
     commands_input: str
     expected_stdout: str
+    sample_hashlog: Optional[str] = None
+
+
+@dataclass
+class LogSummary:
+    waiting: int = 0
+    awakened: int = 0
+    command_lines: int = 0
+    command_types: list[str] = field(default_factory=list)
+    read_acq: int = 0
+    read_rel: int = 0
+    write_acq: int = 0
+    write_rel: int = 0
+    footer_acq: Optional[int] = None
+    footer_rel: Optional[int] = None
 
 
 def normalize_text(text: str) -> str:
@@ -50,6 +83,14 @@ def normalize_text(text: str) -> str:
     lines = text.split("\n")
     lines = [line.rstrip(" \t") for line in lines]
     return "\n".join(lines)
+
+
+def normalize_for_stdout_compare(text: str) -> str:
+    """Normalize stdout text, then ignore one optional final newline."""
+    normalized = normalize_text(text)
+    if normalized.endswith("\n"):
+        return normalized[:-1]
+    return normalized
 
 
 def make_unified_diff(expected: str, actual: str, test_name: str) -> str:
@@ -181,15 +222,198 @@ def check_read_overlap(hash_log_text: str, first_thread: int, second_thread: int
     return overlap, details
 
 
+def parse_command_types(commands_input: str) -> list[str]:
+    """Return command names from commands input, excluding the header line."""
+    lines = [line for line in normalize_text(commands_input).split("\n") if line.strip()]
+    if not lines:
+        return []
+
+    command_types: list[str] = []
+    for line in lines[1:]:
+        command_name = line.split(",", 1)[0].strip().upper()
+        command_types.append(command_name)
+    return command_types
+
+
+def strip_timestamp_prefix(line: str) -> str:
+    """Remove leading numeric timestamp prefix like '12345: ' if present."""
+    if ": " not in line:
+        return line
+    maybe_ts, rest = line.split(": ", 1)
+    if maybe_ts.isdigit():
+        return rest
+    return line
+
+
+def parse_footer_count(line: str, prefix: str) -> Optional[int]:
+    if not line.startswith(prefix):
+        return None
+    remainder = line[len(prefix):].strip()
+    if not remainder:
+        return None
+    try:
+        return int(remainder)
+    except ValueError:
+        return None
+
+
+def parse_hash_log(hash_log_text: str) -> LogSummary:
+    summary = LogSummary()
+
+    for raw_line in normalize_text(hash_log_text).split("\n"):
+        if not raw_line.strip():
+            continue
+
+        line = strip_timestamp_prefix(raw_line.strip())
+
+        if "WAITING FOR MY TURN" in line:
+            summary.waiting += 1
+            continue
+        if "AWAKENED FOR WORK" in line:
+            summary.awakened += 1
+            continue
+        if "READ LOCK ACQUIRED" in line:
+            summary.read_acq += 1
+            continue
+        if "READ LOCK RELEASED" in line:
+            summary.read_rel += 1
+            continue
+        if "WRITE LOCK ACQUIRED" in line:
+            summary.write_acq += 1
+            continue
+        if "WRITE LOCK RELEASED" in line:
+            summary.write_rel += 1
+            continue
+
+        acq = parse_footer_count(line, "Number of lock acquisitions:")
+        if acq is not None:
+            summary.footer_acq = acq
+            continue
+
+        rel = parse_footer_count(line, "Number of lock releases:")
+        if rel is not None:
+            summary.footer_rel = rel
+            continue
+
+        command_match = COMMAND_LINE_RE.match(line)
+        if command_match:
+            maybe_command = command_match.group(1)
+            if maybe_command in COMMAND_TYPES:
+                summary.command_lines += 1
+                summary.command_types.append(maybe_command)
+
+    return summary
+
+
+def validate_log_invariants(
+    expected_command_types: list[str],
+    summary: LogSummary,
+    require_exact_command_type_multiset: bool,
+) -> tuple[bool, str]:
+    expected_command_count = len(expected_command_types)
+
+    if summary.command_lines != expected_command_count:
+        return False, f"expected {expected_command_count} command lines, got {summary.command_lines}"
+    if summary.waiting != expected_command_count:
+        return False, f"expected {expected_command_count} WAITING lines, got {summary.waiting}"
+    if summary.awakened != expected_command_count:
+        return False, f"expected {expected_command_count} AWAKENED lines, got {summary.awakened}"
+
+    expected_write_commands = sum(
+        cmd in {"INSERT", "UPDATE", "DELETE"} for cmd in expected_command_types
+    )
+    expected_read_commands = sum(
+        cmd in {"SEARCH", "PRINT"} for cmd in expected_command_types
+    )
+
+    if summary.write_acq != expected_write_commands:
+        return False, f"expected {expected_write_commands} WRITE LOCK ACQUIRED, got {summary.write_acq}"
+    if summary.write_rel != expected_write_commands:
+        return False, f"expected {expected_write_commands} WRITE LOCK RELEASED, got {summary.write_rel}"
+    if summary.read_acq != expected_read_commands:
+        return False, f"expected {expected_read_commands} READ LOCK ACQUIRED, got {summary.read_acq}"
+    if summary.read_rel != expected_read_commands:
+        return False, f"expected {expected_read_commands} READ LOCK RELEASED, got {summary.read_rel}"
+
+    total_acq = summary.read_acq + summary.write_acq
+    total_rel = summary.read_rel + summary.write_rel
+    if total_acq != total_rel:
+        return False, f"total lock acquisitions {total_acq} != releases {total_rel}"
+
+    if summary.footer_acq is not None and summary.footer_acq != total_acq:
+        return False, f"footer acquisitions {summary.footer_acq} != parsed acquisitions {total_acq}"
+    if summary.footer_rel is not None and summary.footer_rel != total_rel:
+        return False, f"footer releases {summary.footer_rel} != parsed releases {total_rel}"
+
+    if require_exact_command_type_multiset:
+        expected_counter = Counter(expected_command_types)
+        actual_counter = Counter(summary.command_types)
+        if actual_counter != expected_counter:
+            return False, "command types in log do not match command types in input"
+
+    return True, "ok"
+
+
+def run_basic_hashlog_check(commands_input: str, hash_log_text: str) -> tuple[bool, str]:
+    expected_command_types = parse_command_types(commands_input)
+    parsed_log = parse_hash_log(hash_log_text)
+    return validate_log_invariants(
+        expected_command_types,
+        parsed_log,
+        require_exact_command_type_multiset=False,
+    )
+
+
+def run_structure_only_hashlog_check(
+    commands_input: str,
+    hash_log_text: str,
+    sample_hashlog_text: str,
+) -> tuple[bool, str]:
+    if not sample_hashlog_text.strip():
+        return False, "sample hash.log is empty"
+
+    sample = parse_hash_log(sample_hashlog_text)
+    actual = parse_hash_log(hash_log_text)
+
+    category_requirements = [
+        ("WAITING", sample.waiting, actual.waiting),
+        ("AWAKENED", sample.awakened, actual.awakened),
+        ("COMMAND", sample.command_lines, actual.command_lines),
+        ("READ_ACQ", sample.read_acq, actual.read_acq),
+        ("READ_REL", sample.read_rel, actual.read_rel),
+        ("WRITE_ACQ", sample.write_acq, actual.write_acq),
+        ("WRITE_REL", sample.write_rel, actual.write_rel),
+    ]
+    for label, sample_count, actual_count in category_requirements:
+        if sample_count > 0 and actual_count == 0:
+            return False, f"category {label} missing from actual hash.log"
+
+    expected_command_types = parse_command_types(commands_input)
+    return validate_log_invariants(
+        expected_command_types,
+        actual,
+        require_exact_command_type_multiset=True,
+    )
+
+
 def load_test_case(commands_path: Path) -> TestCase:
     basename = commands_path.name.removesuffix(".commands.txt")
     expected_path = commands_path.with_name(f"{basename}.expected.txt")
+    sample_hashlog_path = commands_path.with_name(f"{basename}.sample_hashlog.txt")
+
+    if not expected_path.exists():
+        raise FileNotFoundError(f"Missing expected output file: {expected_path}")
 
     return TestCase(
         name=basename.replace("_", " "),
         basename=basename,
         commands_input=commands_path.read_text(encoding="utf-8"),
         expected_stdout=expected_path.read_text(encoding="utf-8"),
+        sample_hashlog=(
+            sample_hashlog_path.read_text(encoding="utf-8", errors="replace")
+            if sample_hashlog_path.exists()
+            else None
+        ),
     )
 
 
@@ -219,7 +443,15 @@ def main() -> int:
     workdir = Path(__file__).resolve().parent
     cases_dir = workdir / "tests" / "cases"
     commands_files = sorted(cases_dir.glob("*.commands.txt"))
-    test_cases = [load_test_case(commands_path) for commands_path in commands_files]
+    if not commands_files:
+        print(f"ERROR: no .commands.txt files found in {cases_dir}")
+        return 2
+
+    try:
+        test_cases = [load_test_case(commands_path) for commands_path in commands_files]
+    except FileNotFoundError as exc:
+        print(f"ERROR: {exc}")
+        return 2
 
     try:
         program_path = find_program_path(workdir)
@@ -237,8 +469,8 @@ def main() -> int:
 
         actual_stdout_raw, hash_log_raw, returncode = run_program(program_path, workdir)
 
-        actual_stdout = normalize_text(actual_stdout_raw)
-        expected_stdout = normalize_text(test.expected_stdout)
+        actual_stdout = normalize_for_stdout_compare(actual_stdout_raw)
+        expected_stdout = normalize_for_stdout_compare(test.expected_stdout)
 
         stdout_ok = actual_stdout == expected_stdout
 
@@ -257,6 +489,16 @@ def main() -> int:
                 print("Unified diff: (no visible diff generated)")
             any_stdout_failures = True
 
+        if BASIC_HASHLOG_CASES.get(test.basename):
+            basic_ok, basic_message = run_basic_hashlog_check(
+                test.commands_input,
+                hash_log_raw,
+            )
+            if basic_ok:
+                print("BASIC HASH.LOG CHECK: PASS")
+            else:
+                print(f"BASIC HASH.LOG CHECK: FAIL ({basic_message})")
+
         overlap_case = OVERLAP_CASES.get(test.basename)
         if overlap_case is not None:
             overlap, summary = run_overlap_check(
@@ -268,6 +510,23 @@ def main() -> int:
                 overlap_case["repeat_runs"],
             )
             print(f"LOG CONCURRENCY CHECK: {summary}")
+
+        sample_case = SAMPLE_HASHLOG_CASES.get(test.basename)
+        if sample_case is not None:
+            if test.sample_hashlog is None:
+                print("HASH.LOG STRUCTURE CHECK: FAIL (sample hash.log file missing)")
+            elif sample_case.get("mode") == "structure_only":
+                structure_ok, structure_message = run_structure_only_hashlog_check(
+                    test.commands_input,
+                    hash_log_raw,
+                    test.sample_hashlog,
+                )
+                if structure_ok:
+                    print("HASH.LOG STRUCTURE CHECK: PASS")
+                else:
+                    print(f"HASH.LOG STRUCTURE CHECK: FAIL ({structure_message})")
+            else:
+                print("HASH.LOG STRUCTURE CHECK: FAIL (unsupported sample hash.log mode)")
 
     if any_stdout_failures:
         print("\nOverall result: FAIL (one or more stdout tests failed)")

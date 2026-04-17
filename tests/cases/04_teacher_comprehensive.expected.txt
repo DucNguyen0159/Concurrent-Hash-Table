@@ -1,4 +1,3 @@
-Complete stdout Output:
 Inserted 1874280167,Shigeru Miyamoto,85000
 Inserted 2569965317,Hideo Kojima,92000
 Inserted 448054155,Gabe Newell,88000
@@ -154,7 +153,3 @@ Current Database:
 3075887164,Sonic,67000
 3972258834,Yoko Shimomura,91000
 3985384421,Cloud Strife,75000
-
-
-
-

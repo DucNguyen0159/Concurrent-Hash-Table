@@ -45,9 +45,10 @@ fn worker(
                 id,
                 &format!("INSERT,{},{},{}", h, name, salary),
             )?;
-            logger.log_write_lock_acquired(priority)?;
             let res = {
                 let mut g = table.write().unwrap_or_else(|e| e.into_inner());
+                logger.log_write_lock_acquired(priority)?;
+                turns.advance_and_notify_all();
                 g.insert(Record {
                     hash: h,
                     name: name.clone(),
@@ -58,16 +59,17 @@ fn worker(
             match res {
                 Ok(()) => format!("Inserted {},{},{}\n", h, name, salary),
                 Err(_) => format!(
-                    "Duplicate entry:  Insert failed.  Entry {h} is a duplicate.\n"
+                    "Insert failed. Entry {h} is a duplicate.\n"
                 ),
             }
         }
         Command::Delete { name, priority } => {
             let h = jenkins_one_at_a_time(&name);
             logger.log_command(id, &format!("DELETE,{h},{name}"))?;
-            logger.log_write_lock_acquired(priority)?;
             let removed = {
                 let mut g = table.write().unwrap_or_else(|e| e.into_inner());
+                logger.log_write_lock_acquired(priority)?;
+                turns.advance_and_notify_all();
                 g.delete(h)
             };
             logger.log_write_lock_released(priority)?;
@@ -86,9 +88,10 @@ fn worker(
                 id,
                 &format!("UPDATE,{},{},{}", h, name, salary),
             )?;
-            logger.log_write_lock_acquired(priority)?;
             let res = {
                 let mut g = table.write().unwrap_or_else(|e| e.into_inner());
+                logger.log_write_lock_acquired(priority)?;
+                turns.advance_and_notify_all();
                 g.update(h, salary)
             };
             logger.log_write_lock_released(priority)?;
@@ -104,10 +107,14 @@ fn worker(
         Command::Search { name, priority } => {
             let h = jenkins_one_at_a_time(&name);
             logger.log_command(id, &format!("SEARCH,{h},{name}"))?;
-            logger.log_read_lock_acquired(priority)?;
             let found = {
                 let g = table.read().unwrap_or_else(|e| e.into_inner());
-                g.search(h)
+                logger.log_read_lock_acquired(priority)?;
+                turns.advance_and_notify_all();
+                std::thread::yield_now();
+                let found = g.search(h);
+                std::thread::yield_now();
+                found
             };
             logger.log_read_lock_released(priority)?;
             match found {
@@ -117,18 +124,19 @@ fn worker(
         }
         Command::Print { priority } => {
             logger.log_command(id, "PRINT")?;
-            logger.log_read_lock_acquired(priority)?;
             let block = {
                 let g = table.read().unwrap_or_else(|e| e.into_inner());
-                g.format_database()
+                logger.log_read_lock_acquired(priority)?;
+                turns.advance_and_notify_all();
+                std::thread::yield_now();
+                let block = g.format_database();
+                std::thread::yield_now();
+                block
             };
             logger.log_read_lock_released(priority)?;
             block
         }
     };
-
-    // Release the next thread only after this command finishes (avoids e.g. PRINT before prior INSERTs).
-    turns.advance_and_notify_all();
 
     tx.send((id, stdout)).map_err(|_| {
         io::Error::new(io::ErrorKind::BrokenPipe, "stdout collector dropped")
