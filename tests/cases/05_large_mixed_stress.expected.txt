@@ -1,0 +1,672 @@
+Inserted 1487278225,Sakurai Miyamoto,94155
+Inserted 2336787261,Hidetaka Miyamoto,102193
+Inserted 1465075331,Cory Carver,128439
+Inserted 2896905941,Todd Meier,117058
+Inserted 564015366,Gabe Sakaguchi,91028
+Inserted 3374211984,Morgan Uematsu,84430
+Inserted 627358370,Sakurai Tanaka,114074
+Inserted 2887771619,Casey Suzuki,106689
+Inserted 1060635741,Masahiro Iwata,116890
+Inserted 64100894,Gabe Mercer,122839
+Inserted 2959641609,Kai Nakamura,63563
+Inserted 21801939,Dakota Shimomura,103810
+Inserted 4186812823,Masahiro Suzuki,131921
+Inserted 2027597505,Koji Kojima,69397
+Inserted 275674648,Nobuo Suzuki,106152
+Inserted 1119232949,Morgan Meier,71674
+Inserted 3794155794,Rin Nomura,116816
+Inserted 3486639478,Cory Meier,58010
+Inserted 1264042175,Amy Nomura,122913
+Inserted 2052341359,Taylor Nomura,71106
+Inserted 779161416,Cory Kojima,68981
+Inserted 695791192,Hideki Suzuki,102620
+Inserted 2574744988,Morgan Rivers,60681
+Inserted 2618558809,Koji Iwata,126898
+Inserted 3495062509,Yoko Newell,58085
+Inserted 1058560081,Yoko Rivers,66716
+Inserted 3397273896,Casey Iwata,92392
+Inserted 3805701322,Hironobu Kojima,93374
+Inserted 2051291723,Hidetaka Nakamura,102846
+Inserted 2964907831,Amy Carver,97823
+Inserted 2722923704,Kai Nomura,91742
+Inserted 1690230909,Sakurai Uematsu,70480
+Inserted 863147281,Taylor Sakaguchi,61232
+Inserted 3784952794,Jordan Kondo,121288
+Inserted 462288008,Tetsuya Nakamura,105081
+Inserted 2848344200,Shigeru Rivers,120312
+Inserted 4118552457,Hironobu Iwata,68203
+Inserted 3885792650,Todd Howard,96518
+Inserted 4149698031,Cory Miyamoto,86137
+Inserted 4177522880,Nobuo Tanaka,94308
+Entry 3177465855 not deleted. Not in database.
+Update failed. Entry 2779110175 not found.
+Updated record 627358370 from 627358370,Sakurai Tanaka,114074 to 627358370,Sakurai Tanaka,61862
+Insert failed. Entry 4186812823 is a duplicate.
+Entry 2740077515 not deleted. Not in database.
+Inserted 4294292490,Jade Carver,106754
+Inserted 1234578387,Avery Miyazaki,117595
+Update failed. Entry 805498675 not found.
+Current Database:
+21801939,Dakota Shimomura,103810
+64100894,Gabe Mercer,122839
+275674648,Nobuo Suzuki,106152
+462288008,Tetsuya Nakamura,105081
+564015366,Gabe Sakaguchi,91028
+627358370,Sakurai Tanaka,61862
+695791192,Hideki Suzuki,102620
+779161416,Cory Kojima,68981
+863147281,Taylor Sakaguchi,61232
+1058560081,Yoko Rivers,66716
+1060635741,Masahiro Iwata,116890
+1119232949,Morgan Meier,71674
+1234578387,Avery Miyazaki,117595
+1264042175,Amy Nomura,122913
+1465075331,Cory Carver,128439
+1487278225,Sakurai Miyamoto,94155
+1690230909,Sakurai Uematsu,70480
+2027597505,Koji Kojima,69397
+2051291723,Hidetaka Nakamura,102846
+2052341359,Taylor Nomura,71106
+2336787261,Hidetaka Miyamoto,102193
+2574744988,Morgan Rivers,60681
+2618558809,Koji Iwata,126898
+2722923704,Kai Nomura,91742
+2848344200,Shigeru Rivers,120312
+2887771619,Casey Suzuki,106689
+2896905941,Todd Meier,117058
+2959641609,Kai Nakamura,63563
+2964907831,Amy Carver,97823
+3374211984,Morgan Uematsu,84430
+3397273896,Casey Iwata,92392
+3486639478,Cory Meier,58010
+3495062509,Yoko Newell,58085
+3784952794,Jordan Kondo,121288
+3794155794,Rin Nomura,116816
+3805701322,Hironobu Kojima,93374
+3885792650,Todd Howard,96518
+4118552457,Hironobu Iwata,68203
+4149698031,Cory Miyamoto,86137
+4177522880,Nobuo Tanaka,94308
+4186812823,Masahiro Suzuki,131921
+4294292490,Jade Carver,106754
+Jordan Uematsu not found.
+Insert failed. Entry 64100894 is a duplicate.
+Inserted 604195233,Masahiro Uematsu,92671
+Updated record 3794155794 from 3794155794,Rin Nomura,116816 to 3794155794,Rin Nomura,115715
+Current Database:
+21801939,Dakota Shimomura,103810
+64100894,Gabe Mercer,122839
+275674648,Nobuo Suzuki,106152
+462288008,Tetsuya Nakamura,105081
+564015366,Gabe Sakaguchi,91028
+604195233,Masahiro Uematsu,92671
+627358370,Sakurai Tanaka,61862
+695791192,Hideki Suzuki,102620
+779161416,Cory Kojima,68981
+863147281,Taylor Sakaguchi,61232
+1058560081,Yoko Rivers,66716
+1060635741,Masahiro Iwata,116890
+1119232949,Morgan Meier,71674
+1234578387,Avery Miyazaki,117595
+1264042175,Amy Nomura,122913
+1465075331,Cory Carver,128439
+1487278225,Sakurai Miyamoto,94155
+1690230909,Sakurai Uematsu,70480
+2027597505,Koji Kojima,69397
+2051291723,Hidetaka Nakamura,102846
+2052341359,Taylor Nomura,71106
+2336787261,Hidetaka Miyamoto,102193
+2574744988,Morgan Rivers,60681
+2618558809,Koji Iwata,126898
+2722923704,Kai Nomura,91742
+2848344200,Shigeru Rivers,120312
+2887771619,Casey Suzuki,106689
+2896905941,Todd Meier,117058
+2959641609,Kai Nakamura,63563
+2964907831,Amy Carver,97823
+3374211984,Morgan Uematsu,84430
+3397273896,Casey Iwata,92392
+3486639478,Cory Meier,58010
+3495062509,Yoko Newell,58085
+3784952794,Jordan Kondo,121288
+3794155794,Rin Nomura,115715
+3805701322,Hironobu Kojima,93374
+3885792650,Todd Howard,96518
+4118552457,Hironobu Iwata,68203
+4149698031,Cory Miyamoto,86137
+4177522880,Nobuo Tanaka,94308
+4186812823,Masahiro Suzuki,131921
+4294292490,Jade Carver,106754
+Insert failed. Entry 2574744988 is a duplicate.
+Inserted 236693362,Todd Suzuki,85537
+Gabe Kamiya not found.
+Inserted 1760725573,Amy Nakamura,59722
+Deleted record for 2052341359,Taylor Nomura,71106
+Updated record 2574744988 from 2574744988,Morgan Rivers,60681 to 2574744988,Morgan Rivers,99410
+Found: 1690230909,Sakurai Uematsu,70480
+Update failed. Entry 24659660 not found.
+Update failed. Entry 3350947995 not found.
+Insert failed. Entry 462288008 is a duplicate.
+Insert failed. Entry 695791192 is a duplicate.
+Inserted 3599034351,Suda Sakurai,73613
+Insert failed. Entry 3794155794 is a duplicate.
+Entry 4174534874 not deleted. Not in database.
+Insert failed. Entry 3374211984 is a duplicate.
+Found: 1465075331,Cory Carver,128439
+Inserted 2780413409,Rin Kondo,79628
+Inserted 4203108670,Shigeru Iwata,86619
+Updated record 3805701322 from 3805701322,Hironobu Kojima,93374 to 3805701322,Hironobu Kojima,75809
+Update failed. Entry 1151261083 not found.
+Insert failed. Entry 1760725573 is a duplicate.
+Updated record 4118552457 from 4118552457,Hironobu Iwata,68203 to 4118552457,Hironobu Iwata,142831
+Update failed. Entry 4212575366 not found.
+Updated record 1119232949 from 1119232949,Morgan Meier,71674 to 1119232949,Morgan Meier,103696
+Updated record 2959641609 from 2959641609,Kai Nakamura,63563 to 2959641609,Kai Nakamura,116342
+Inserted 2652763721,Reese Sakaguchi,93387
+Found: 1234578387,Avery Miyazaki,117595
+Found: 3397273896,Casey Iwata,92392
+Inserted 3474917676,Dakota Uematsu,74715
+Insert failed. Entry 1264042175 is a duplicate.
+Insert failed. Entry 1058560081 is a duplicate.
+Deleted record for 64100894,Gabe Mercer,122839
+Avery Nomura not found.
+Inserted 2200765263,Yoshi Kondo,119255
+Current Database:
+21801939,Dakota Shimomura,103810
+236693362,Todd Suzuki,85537
+275674648,Nobuo Suzuki,106152
+462288008,Tetsuya Nakamura,105081
+564015366,Gabe Sakaguchi,91028
+604195233,Masahiro Uematsu,92671
+627358370,Sakurai Tanaka,61862
+695791192,Hideki Suzuki,102620
+779161416,Cory Kojima,68981
+863147281,Taylor Sakaguchi,61232
+1058560081,Yoko Rivers,66716
+1060635741,Masahiro Iwata,116890
+1119232949,Morgan Meier,103696
+1234578387,Avery Miyazaki,117595
+1264042175,Amy Nomura,122913
+1465075331,Cory Carver,128439
+1487278225,Sakurai Miyamoto,94155
+1690230909,Sakurai Uematsu,70480
+1760725573,Amy Nakamura,59722
+2027597505,Koji Kojima,69397
+2051291723,Hidetaka Nakamura,102846
+2200765263,Yoshi Kondo,119255
+2336787261,Hidetaka Miyamoto,102193
+2574744988,Morgan Rivers,99410
+2618558809,Koji Iwata,126898
+2652763721,Reese Sakaguchi,93387
+2722923704,Kai Nomura,91742
+2780413409,Rin Kondo,79628
+2848344200,Shigeru Rivers,120312
+2887771619,Casey Suzuki,106689
+2896905941,Todd Meier,117058
+2959641609,Kai Nakamura,116342
+2964907831,Amy Carver,97823
+3374211984,Morgan Uematsu,84430
+3397273896,Casey Iwata,92392
+3474917676,Dakota Uematsu,74715
+3486639478,Cory Meier,58010
+3495062509,Yoko Newell,58085
+3599034351,Suda Sakurai,73613
+3784952794,Jordan Kondo,121288
+3794155794,Rin Nomura,115715
+3805701322,Hironobu Kojima,75809
+3885792650,Todd Howard,96518
+4118552457,Hironobu Iwata,142831
+4149698031,Cory Miyamoto,86137
+4177522880,Nobuo Tanaka,94308
+4186812823,Masahiro Suzuki,131921
+4203108670,Shigeru Iwata,86619
+4294292490,Jade Carver,106754
+Found: 627358370,Sakurai Tanaka,61862
+Found: 21801939,Dakota Shimomura,103810
+Updated record 2336787261 from 2336787261,Hidetaka Miyamoto,102193 to 2336787261,Hidetaka Miyamoto,134654
+Deleted record for 2848344200,Shigeru Rivers,120312
+Satoru Uematsu not found.
+Inserted 3406443233,Hideki Mercer,97837
+Entry 891649286 not deleted. Not in database.
+Inserted 2359781747,Hideki Uematsu,101727
+Deleted record for 4294292490,Jade Carver,106754
+Found: 275674648,Nobuo Suzuki,106152
+Insert failed. Entry 1690230909 is a duplicate.
+Update failed. Entry 3554608627 not found.
+Inserted 3893588973,Jade Shimomura,99164
+Inserted 2575371244,Hironobu Mercer,125075
+Inserted 1151261083,Amy Kojima,73820
+Found: 2051291723,Hidetaka Nakamura,102846
+Found: 2200765263,Yoshi Kondo,119255
+Inserted 3294525517,Morgan Carver,107705
+Inserted 4030865682,Hideo Meier,112631
+Current Database:
+21801939,Dakota Shimomura,103810
+236693362,Todd Suzuki,85537
+275674648,Nobuo Suzuki,106152
+462288008,Tetsuya Nakamura,105081
+564015366,Gabe Sakaguchi,91028
+604195233,Masahiro Uematsu,92671
+627358370,Sakurai Tanaka,61862
+695791192,Hideki Suzuki,102620
+779161416,Cory Kojima,68981
+863147281,Taylor Sakaguchi,61232
+1058560081,Yoko Rivers,66716
+1060635741,Masahiro Iwata,116890
+1119232949,Morgan Meier,103696
+1151261083,Amy Kojima,73820
+1234578387,Avery Miyazaki,117595
+1264042175,Amy Nomura,122913
+1465075331,Cory Carver,128439
+1487278225,Sakurai Miyamoto,94155
+1690230909,Sakurai Uematsu,70480
+1760725573,Amy Nakamura,59722
+2027597505,Koji Kojima,69397
+2051291723,Hidetaka Nakamura,102846
+2200765263,Yoshi Kondo,119255
+2336787261,Hidetaka Miyamoto,134654
+2359781747,Hideki Uematsu,101727
+2574744988,Morgan Rivers,99410
+2575371244,Hironobu Mercer,125075
+2618558809,Koji Iwata,126898
+2652763721,Reese Sakaguchi,93387
+2722923704,Kai Nomura,91742
+2780413409,Rin Kondo,79628
+2887771619,Casey Suzuki,106689
+2896905941,Todd Meier,117058
+2959641609,Kai Nakamura,116342
+2964907831,Amy Carver,97823
+3294525517,Morgan Carver,107705
+3374211984,Morgan Uematsu,84430
+3397273896,Casey Iwata,92392
+3406443233,Hideki Mercer,97837
+3474917676,Dakota Uematsu,74715
+3486639478,Cory Meier,58010
+3495062509,Yoko Newell,58085
+3599034351,Suda Sakurai,73613
+3784952794,Jordan Kondo,121288
+3794155794,Rin Nomura,115715
+3805701322,Hironobu Kojima,75809
+3885792650,Todd Howard,96518
+3893588973,Jade Shimomura,99164
+4030865682,Hideo Meier,112631
+4118552457,Hironobu Iwata,142831
+4149698031,Cory Miyamoto,86137
+4177522880,Nobuo Tanaka,94308
+4186812823,Masahiro Suzuki,131921
+4203108670,Shigeru Iwata,86619
+Update failed. Entry 2367693756 not found.
+Entry 4254169526 not deleted. Not in database.
+Found: 3495062509,Yoko Newell,58085
+Inserted 3884478036,Rowan Uematsu,118475
+Updated record 3294525517 from 3294525517,Morgan Carver,107705 to 3294525517,Morgan Carver,65583
+Inserted 2755234832,Reese Iwata,115038
+Inserted 1810461633,Taylor Tanaka,66644
+Found: 3794155794,Rin Nomura,115715
+Found: 3495062509,Yoko Newell,58085
+Hironobu Howard not found.
+Deleted record for 2336787261,Hidetaka Miyamoto,134654
+Deleted record for 3486639478,Cory Meier,58010
+Found: 2964907831,Amy Carver,97823
+Update failed. Entry 3887574660 not found.
+Insert failed. Entry 2887771619 is a duplicate.
+Entry 1402034819 not deleted. Not in database.
+Entry 261869363 not deleted. Not in database.
+Insert failed. Entry 2359781747 is a duplicate.
+Inserted 2826215496,Hidetaka Rivers,113964
+Update failed. Entry 329065043 not found.
+Updated record 2200765263 from 2200765263,Yoshi Kondo,119255 to 2200765263,Yoshi Kondo,105536
+Inserted 3271375091,Shigeru Uematsu,96204
+Updated record 1264042175 from 1264042175,Amy Nomura,122913 to 1264042175,Amy Nomura,136038
+Insert failed. Entry 604195233 is a duplicate.
+Entry 2051261891 not deleted. Not in database.
+Taylor Newell not found.
+Deleted record for 2200765263,Yoshi Kondo,105536
+Inserted 3620452797,Jordan Kojima,103262
+Inserted 4174405258,Todd Kojima,80893
+Found: 3495062509,Yoko Newell,58085
+Found: 4186812823,Masahiro Suzuki,131921
+Update failed. Entry 1703404327 not found.
+Deleted record for 4174405258,Todd Kojima,80893
+Inserted 3166102631,Masahiro Carver,107064
+Deleted record for 3794155794,Rin Nomura,115715
+Insert failed. Entry 3294525517 is a duplicate.
+Deleted record for 2722923704,Kai Nomura,91742
+Entry 1442351300 not deleted. Not in database.
+Inserted 834326438,Jade Newell,88139
+Inserted 2982246767,Suda Tanaka,95055
+Inserted 2361943066,Todd Nomura,101863
+Inserted 2066399637,Satoru Mercer,94622
+Found: 275674648,Nobuo Suzuki,106152
+Insert failed. Entry 2826215496 is a duplicate.
+Deleted record for 2887771619,Casey Suzuki,106689
+Inserted 177439608,Sakurai Rivers,118549
+Found: 4030865682,Hideo Meier,112631
+Insert failed. Entry 695791192 is a duplicate.
+Inserted 2448522455,Rin Howard,67413
+Hideo Shimomura not found.
+Found: 2982246767,Suda Tanaka,95055
+Insert failed. Entry 604195233 is a duplicate.
+Updated record 3893588973 from 3893588973,Jade Shimomura,99164 to 3893588973,Jade Shimomura,143417
+Sakurai Sakurai not found.
+Update failed. Entry 4089323517 not found.
+Updated record 2051291723 from 2051291723,Hidetaka Nakamura,102846 to 2051291723,Hidetaka Nakamura,144894
+Inserted 2311324999,Avery Tanaka,62148
+Entry 527644260 not deleted. Not in database.
+Found: 1810461633,Taylor Tanaka,66644
+Insert failed. Entry 1234578387 is a duplicate.
+Inserted 1339353042,Casey Rivers,109677
+Inserted 1776642375,Sid Kojima,65182
+Updated record 2826215496 from 2826215496,Hidetaka Rivers,113964 to 2826215496,Hidetaka Rivers,131104
+Inserted 407917775,Tetsuya Uematsu,75536
+Found: 236693362,Todd Suzuki,85537
+Deleted record for 1810461633,Taylor Tanaka,66644
+Current Database:
+21801939,Dakota Shimomura,103810
+177439608,Sakurai Rivers,118549
+236693362,Todd Suzuki,85537
+275674648,Nobuo Suzuki,106152
+407917775,Tetsuya Uematsu,75536
+462288008,Tetsuya Nakamura,105081
+564015366,Gabe Sakaguchi,91028
+604195233,Masahiro Uematsu,92671
+627358370,Sakurai Tanaka,61862
+695791192,Hideki Suzuki,102620
+779161416,Cory Kojima,68981
+834326438,Jade Newell,88139
+863147281,Taylor Sakaguchi,61232
+1058560081,Yoko Rivers,66716
+1060635741,Masahiro Iwata,116890
+1119232949,Morgan Meier,103696
+1151261083,Amy Kojima,73820
+1234578387,Avery Miyazaki,117595
+1264042175,Amy Nomura,136038
+1339353042,Casey Rivers,109677
+1465075331,Cory Carver,128439
+1487278225,Sakurai Miyamoto,94155
+1690230909,Sakurai Uematsu,70480
+1760725573,Amy Nakamura,59722
+1776642375,Sid Kojima,65182
+2027597505,Koji Kojima,69397
+2051291723,Hidetaka Nakamura,144894
+2066399637,Satoru Mercer,94622
+2311324999,Avery Tanaka,62148
+2359781747,Hideki Uematsu,101727
+2361943066,Todd Nomura,101863
+2448522455,Rin Howard,67413
+2574744988,Morgan Rivers,99410
+2575371244,Hironobu Mercer,125075
+2618558809,Koji Iwata,126898
+2652763721,Reese Sakaguchi,93387
+2755234832,Reese Iwata,115038
+2780413409,Rin Kondo,79628
+2826215496,Hidetaka Rivers,131104
+2896905941,Todd Meier,117058
+2959641609,Kai Nakamura,116342
+2964907831,Amy Carver,97823
+2982246767,Suda Tanaka,95055
+3166102631,Masahiro Carver,107064
+3271375091,Shigeru Uematsu,96204
+3294525517,Morgan Carver,65583
+3374211984,Morgan Uematsu,84430
+3397273896,Casey Iwata,92392
+3406443233,Hideki Mercer,97837
+3474917676,Dakota Uematsu,74715
+3495062509,Yoko Newell,58085
+3599034351,Suda Sakurai,73613
+3620452797,Jordan Kojima,103262
+3784952794,Jordan Kondo,121288
+3805701322,Hironobu Kojima,75809
+3884478036,Rowan Uematsu,118475
+3885792650,Todd Howard,96518
+3893588973,Jade Shimomura,143417
+4030865682,Hideo Meier,112631
+4118552457,Hironobu Iwata,142831
+4149698031,Cory Miyamoto,86137
+4177522880,Nobuo Tanaka,94308
+4186812823,Masahiro Suzuki,131921
+4203108670,Shigeru Iwata,86619
+Entry 2240741816 not deleted. Not in database.
+Inserted 261869363,Yoko Kondo,69816
+Update failed. Entry 689748577 not found.
+Inserted 1423029455,Kai Suzuki,102146
+Insert failed. Entry 2755234832 is a duplicate.
+Update failed. Entry 2063841579 not found.
+Found: 2896905941,Todd Meier,117058
+Found: 4186812823,Masahiro Suzuki,131921
+Inserted 1855741812,Taylor Suzuki,70154
+Entry 3106348608 not deleted. Not in database.
+Insert failed. Entry 2311324999 is a duplicate.
+Deleted record for 2359781747,Hideki Uematsu,101727
+Found: 3294525517,Morgan Carver,65583
+Deleted record for 564015366,Gabe Sakaguchi,91028
+Insert failed. Entry 2964907831 is a duplicate.
+Inserted 2974910011,Shigeru Kojima,58329
+Deleted record for 2780413409,Rin Kondo,79628
+Sid Iwata not found.
+Todd Newell not found.
+Updated record 177439608 from 177439608,Sakurai Rivers,118549 to 177439608,Sakurai Rivers,92513
+Insert failed. Entry 177439608 is a duplicate.
+Inserted 3343135401,Gabe Rivers,84032
+Updated record 3374211984 from 3374211984,Morgan Uematsu,84430 to 3374211984,Morgan Uematsu,97722
+Inserted 1669858181,Hideki Iwata,59080
+Insert failed. Entry 1487278225 is a duplicate.
+Found: 1234578387,Avery Miyazaki,117595
+Updated record 1669858181 from 1669858181,Hideki Iwata,59080 to 1669858181,Hideki Iwata,86232
+Updated record 3374211984 from 3374211984,Morgan Uematsu,97722 to 3374211984,Morgan Uematsu,71387
+Hideo Kojima not found.
+Deleted record for 3474917676,Dakota Uematsu,74715
+Inserted 166710247,Hideki Miyazaki,113111
+Updated record 3374211984 from 3374211984,Morgan Uematsu,71387 to 3374211984,Morgan Uematsu,129080
+Deleted record for 2361943066,Todd Nomura,101863
+Current Database:
+21801939,Dakota Shimomura,103810
+166710247,Hideki Miyazaki,113111
+177439608,Sakurai Rivers,92513
+236693362,Todd Suzuki,85537
+261869363,Yoko Kondo,69816
+275674648,Nobuo Suzuki,106152
+407917775,Tetsuya Uematsu,75536
+462288008,Tetsuya Nakamura,105081
+604195233,Masahiro Uematsu,92671
+627358370,Sakurai Tanaka,61862
+695791192,Hideki Suzuki,102620
+779161416,Cory Kojima,68981
+834326438,Jade Newell,88139
+863147281,Taylor Sakaguchi,61232
+1058560081,Yoko Rivers,66716
+1060635741,Masahiro Iwata,116890
+1119232949,Morgan Meier,103696
+1151261083,Amy Kojima,73820
+1234578387,Avery Miyazaki,117595
+1264042175,Amy Nomura,136038
+1339353042,Casey Rivers,109677
+1423029455,Kai Suzuki,102146
+1465075331,Cory Carver,128439
+1487278225,Sakurai Miyamoto,94155
+1669858181,Hideki Iwata,86232
+1690230909,Sakurai Uematsu,70480
+1760725573,Amy Nakamura,59722
+1776642375,Sid Kojima,65182
+1855741812,Taylor Suzuki,70154
+2027597505,Koji Kojima,69397
+2051291723,Hidetaka Nakamura,144894
+2066399637,Satoru Mercer,94622
+2311324999,Avery Tanaka,62148
+2448522455,Rin Howard,67413
+2574744988,Morgan Rivers,99410
+2575371244,Hironobu Mercer,125075
+2618558809,Koji Iwata,126898
+2652763721,Reese Sakaguchi,93387
+2755234832,Reese Iwata,115038
+2826215496,Hidetaka Rivers,131104
+2896905941,Todd Meier,117058
+2959641609,Kai Nakamura,116342
+2964907831,Amy Carver,97823
+2974910011,Shigeru Kojima,58329
+2982246767,Suda Tanaka,95055
+3166102631,Masahiro Carver,107064
+3271375091,Shigeru Uematsu,96204
+3294525517,Morgan Carver,65583
+3343135401,Gabe Rivers,84032
+3374211984,Morgan Uematsu,129080
+3397273896,Casey Iwata,92392
+3406443233,Hideki Mercer,97837
+3495062509,Yoko Newell,58085
+3599034351,Suda Sakurai,73613
+3620452797,Jordan Kojima,103262
+3784952794,Jordan Kondo,121288
+3805701322,Hironobu Kojima,75809
+3884478036,Rowan Uematsu,118475
+3885792650,Todd Howard,96518
+3893588973,Jade Shimomura,143417
+4030865682,Hideo Meier,112631
+4118552457,Hironobu Iwata,142831
+4149698031,Cory Miyamoto,86137
+4177522880,Nobuo Tanaka,94308
+4186812823,Masahiro Suzuki,131921
+4203108670,Shigeru Iwata,86619
+Inserted 1328305161,Jordan Nomura,78456
+Update failed. Entry 3389005846 not found.
+Insert failed. Entry 4177522880 is a duplicate.
+Updated record 3495062509 from 3495062509,Yoko Newell,58085 to 3495062509,Yoko Newell,111858
+Inserted 723502029,Morgan Nakamura,77919
+Found: 407917775,Tetsuya Uematsu,75536
+Satoru Sakaguchi not found.
+Deleted record for 3805701322,Hironobu Kojima,75809
+Current Database:
+21801939,Dakota Shimomura,103810
+166710247,Hideki Miyazaki,113111
+177439608,Sakurai Rivers,92513
+236693362,Todd Suzuki,85537
+261869363,Yoko Kondo,69816
+275674648,Nobuo Suzuki,106152
+407917775,Tetsuya Uematsu,75536
+462288008,Tetsuya Nakamura,105081
+604195233,Masahiro Uematsu,92671
+627358370,Sakurai Tanaka,61862
+695791192,Hideki Suzuki,102620
+723502029,Morgan Nakamura,77919
+779161416,Cory Kojima,68981
+834326438,Jade Newell,88139
+863147281,Taylor Sakaguchi,61232
+1058560081,Yoko Rivers,66716
+1060635741,Masahiro Iwata,116890
+1119232949,Morgan Meier,103696
+1151261083,Amy Kojima,73820
+1234578387,Avery Miyazaki,117595
+1264042175,Amy Nomura,136038
+1328305161,Jordan Nomura,78456
+1339353042,Casey Rivers,109677
+1423029455,Kai Suzuki,102146
+1465075331,Cory Carver,128439
+1487278225,Sakurai Miyamoto,94155
+1669858181,Hideki Iwata,86232
+1690230909,Sakurai Uematsu,70480
+1760725573,Amy Nakamura,59722
+1776642375,Sid Kojima,65182
+1855741812,Taylor Suzuki,70154
+2027597505,Koji Kojima,69397
+2051291723,Hidetaka Nakamura,144894
+2066399637,Satoru Mercer,94622
+2311324999,Avery Tanaka,62148
+2448522455,Rin Howard,67413
+2574744988,Morgan Rivers,99410
+2575371244,Hironobu Mercer,125075
+2618558809,Koji Iwata,126898
+2652763721,Reese Sakaguchi,93387
+2755234832,Reese Iwata,115038
+2826215496,Hidetaka Rivers,131104
+2896905941,Todd Meier,117058
+2959641609,Kai Nakamura,116342
+2964907831,Amy Carver,97823
+2974910011,Shigeru Kojima,58329
+2982246767,Suda Tanaka,95055
+3166102631,Masahiro Carver,107064
+3271375091,Shigeru Uematsu,96204
+3294525517,Morgan Carver,65583
+3343135401,Gabe Rivers,84032
+3374211984,Morgan Uematsu,129080
+3397273896,Casey Iwata,92392
+3406443233,Hideki Mercer,97837
+3495062509,Yoko Newell,111858
+3599034351,Suda Sakurai,73613
+3620452797,Jordan Kojima,103262
+3784952794,Jordan Kondo,121288
+3884478036,Rowan Uematsu,118475
+3885792650,Todd Howard,96518
+3893588973,Jade Shimomura,143417
+4030865682,Hideo Meier,112631
+4118552457,Hironobu Iwata,142831
+4149698031,Cory Miyamoto,86137
+4177522880,Nobuo Tanaka,94308
+4186812823,Masahiro Suzuki,131921
+4203108670,Shigeru Iwata,86619
+Current Database:
+21801939,Dakota Shimomura,103810
+166710247,Hideki Miyazaki,113111
+177439608,Sakurai Rivers,92513
+236693362,Todd Suzuki,85537
+261869363,Yoko Kondo,69816
+275674648,Nobuo Suzuki,106152
+407917775,Tetsuya Uematsu,75536
+462288008,Tetsuya Nakamura,105081
+604195233,Masahiro Uematsu,92671
+627358370,Sakurai Tanaka,61862
+695791192,Hideki Suzuki,102620
+723502029,Morgan Nakamura,77919
+779161416,Cory Kojima,68981
+834326438,Jade Newell,88139
+863147281,Taylor Sakaguchi,61232
+1058560081,Yoko Rivers,66716
+1060635741,Masahiro Iwata,116890
+1119232949,Morgan Meier,103696
+1151261083,Amy Kojima,73820
+1234578387,Avery Miyazaki,117595
+1264042175,Amy Nomura,136038
+1328305161,Jordan Nomura,78456
+1339353042,Casey Rivers,109677
+1423029455,Kai Suzuki,102146
+1465075331,Cory Carver,128439
+1487278225,Sakurai Miyamoto,94155
+1669858181,Hideki Iwata,86232
+1690230909,Sakurai Uematsu,70480
+1760725573,Amy Nakamura,59722
+1776642375,Sid Kojima,65182
+1855741812,Taylor Suzuki,70154
+2027597505,Koji Kojima,69397
+2051291723,Hidetaka Nakamura,144894
+2066399637,Satoru Mercer,94622
+2311324999,Avery Tanaka,62148
+2448522455,Rin Howard,67413
+2574744988,Morgan Rivers,99410
+2575371244,Hironobu Mercer,125075
+2618558809,Koji Iwata,126898
+2652763721,Reese Sakaguchi,93387
+2755234832,Reese Iwata,115038
+2826215496,Hidetaka Rivers,131104
+2896905941,Todd Meier,117058
+2959641609,Kai Nakamura,116342
+2964907831,Amy Carver,97823
+2974910011,Shigeru Kojima,58329
+2982246767,Suda Tanaka,95055
+3166102631,Masahiro Carver,107064
+3271375091,Shigeru Uematsu,96204
+3294525517,Morgan Carver,65583
+3343135401,Gabe Rivers,84032
+3374211984,Morgan Uematsu,129080
+3397273896,Casey Iwata,92392
+3406443233,Hideki Mercer,97837
+3495062509,Yoko Newell,111858
+3599034351,Suda Sakurai,73613
+3620452797,Jordan Kojima,103262
+3784952794,Jordan Kondo,121288
+3884478036,Rowan Uematsu,118475
+3885792650,Todd Howard,96518
+3893588973,Jade Shimomura,143417
+4030865682,Hideo Meier,112631
+4118552457,Hironobu Iwata,142831
+4149698031,Cory Miyamoto,86137
+4177522880,Nobuo Tanaka,94308
+4186812823,Masahiro Suzuki,131921
+4203108670,Shigeru Iwata,86619

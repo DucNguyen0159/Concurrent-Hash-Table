@@ -142,6 +142,12 @@ python check_pa2.py
 - `tests/cases/04_teacher_comprehensive.commands.txt`
 - `tests/cases/04_teacher_comprehensive.expected.txt`
 - `tests/cases/04_teacher_comprehensive.sample_hashlog.txt`
+- `tests/cases/05_large_mixed_stress.commands.txt`
+- `tests/cases/05_large_mixed_stress.expected.txt`
+
+Oracle generator for case 05:
+
+- `tests/generate_large_mixed_stress.py`
 
 </details>
 

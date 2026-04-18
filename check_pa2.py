@@ -39,6 +39,7 @@ BASIC_HASHLOG_CASES = {
     "02_missing_delete_update_search": True,
     "03_concurrent_prints": True,
     "04_teacher_comprehensive": True,
+    "05_large_mixed_stress": True,
 }
 
 SAMPLE_HASHLOG_CASES = {
